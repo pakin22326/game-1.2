@@ -9,7 +9,7 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "${workspaceFolder}\\${fileBasenameNoExtension}.exe",
                 "-I",
                 "${workspaceFolder}\\lib\\include",
                 "-L",
