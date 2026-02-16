@@ -7,13 +7,14 @@
 class Map {
 public:
     // กำหนดขนาด Grid (เช่น 30x30 ช่อง)
-    static const int rows = 30;
-    static const int cols = 30;
-    static const int tileSize = 20; // หนึ่งช่องกว้าง 20 pixel
+    int rows = 30;
+    int cols = 30;
+    int tileSize = 20; // หนึ่งช่องกว้าง 20 pixel
+    int maxBoxes = 20; // จำนวนกล่องสุ่มที่จะเพิ่มในแมพ
     
-    int data[rows][cols]; // 0 = พื้น, 1 = กำแพง
+    int data[100][100]; // 0 = พื้น, 1 = กำแพง
 
-    Map();      // Constructor (ใช้ตั้งค่าแมพตอนเริ่มเกม)
+    Map(int rows, int cols, int tileSize, int maxBoxes);      // Constructor (ใช้ตั้งค่าแมพตอนเริ่มเกม)
     bool IsWall(float x, float y); // ฟังก์ชันเช็คว่าตำแหน่ง (x, y) เป็นกำแพงหรือไม่
     void Draw(); // ฟังก์ชันวาดแมพ
 };
