@@ -1,6 +1,7 @@
 #include "map.h"
 
-Map::Map() {
+Map::Map(int rows, int cols, int tileSize, int maxBoxes) {
+    SetRandomSeed(GetTime());
     // กำหนดค่าเริ่มต้นให้กับแมพ (1 คือกำแพงขอบสนาม)
     for (int y = 0; y < rows; y++) {
         for (int x = 0; x < cols; x++) {
@@ -10,6 +11,8 @@ Map::Map() {
                 data[y][x] = 0; // ข้างในเป็นพื้นว่าง
         }
     }
+    for (int i = 0; i < maxBoxes; i++) // สุ่มกล่องเพิ่มในแมพ (ตัวอย่าง)
+    data[GetRandomValue(0, rows - 1)][GetRandomValue(0, cols - 1)] = 1; // ตัวอย่างการเปลี่ยนสุ่มช่องให้เป็นกล่อง
 }
 
 void Map::Draw() {
@@ -27,8 +30,6 @@ void Map::Draw() {
                 // วาดพื้น (อาจจะวาดเส้นตารางจางๆ)
                 DrawRectangleLines(posX, posY, tileSize, tileSize, LIGHTGRAY);
             }
-
-            data[25][25] = 1; // ตัวอย่างการเปลี่ยนช่อง (5, 5) ให้เป็นกำแพง
         }
     }
 }
